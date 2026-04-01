@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-porcelain: #98a8b0;
+  --color-porcelain-light: #a8b6bd;
+  --color-porcelain-dark: #7a8b94;
+  --color-ink: #1a2b3c;
+  --color-ivory: #f8f9fa;
+  --color-gold: #d4af37;
+}
+
+@layer base {
+  body {
+    @apply font-sans text-ink bg-ivory antialiased selection:bg-porcelain selection:text-white;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-light;
+  }
+}
