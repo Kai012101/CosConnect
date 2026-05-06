@@ -30,7 +30,7 @@ export default function App() {
       case 'team':
         return <div className="pt-24"><TeamContent /></div>;
       case 'contact':
-        return <div className="py-32 text-center min-h-screen pt-48"><h2 className="text-4xl font-serif text-[#1a2b3c]">Contact</h2><p className="mt-4 text-gray-500">Get in touch with us.</p></div>;
+        return <ContactContent />;
       default:
         return <HomeContent setActiveTab={setActiveTab} />;
     }
@@ -73,9 +73,9 @@ export default function App() {
               A student community connecting passionate minds to explore cosmetic science, exchange ideas, and discover the chemistry behind beauty.
             </p>
             <div className="flex gap-6 text-gray-400">
-              <a href="#" className="hover:text-gray-900 transition-colors"><Instagram size={18} /></a>
-              <a href="#" className="hover:text-gray-900 transition-colors"><Facebook size={18} /></a>
-              <a href="#" className="hover:text-gray-900 transition-colors"><Twitter size={18} /></a>
+              <a href="https://www.instagram.com/cosconnect.official" target="_blank" rel="noopener noreferrer" aria-label="CosConnect+ on Instagram" className="hover:text-gray-900 transition-colors"><Instagram size={18} /></a>
+              <a href="#" aria-label="CosConnect+ on Facebook" className="hover:text-gray-900 transition-colors"><Facebook size={18} /></a>
+              <a href="#" aria-label="CosConnect+ on Twitter" className="hover:text-gray-900 transition-colors"><Twitter size={18} /></a>
             </div>
           </div>
           
@@ -152,6 +152,7 @@ function AnimatedCounter({ target, suffix = '', prefix = '' }: { target: number;
 
 function AboutContent() {
   return (
+    <>
     <div className="py-24 px-8 lg:px-16 max-w-[1200px] mx-auto min-h-screen flex flex-col lg:flex-row gap-16 items-center pt-32">
       {/* Left side: Stats card */}
       <div className="w-full lg:w-1/2 bg-white rounded-3xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] p-12 grid grid-cols-2 gap-y-16 gap-x-8 text-center">
@@ -185,7 +186,7 @@ function AboutContent() {
           </p>
         </div>
 
-        <div className="flex flex-col gap-8 mt-4">
+          <div className="flex flex-col gap-8 mt-4">
           <div className="flex gap-5">
             <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center shrink-0">
               <Microscope size={20} className="text-gray-700" />
@@ -216,6 +217,30 @@ function AboutContent() {
         </div>
       </div>
     </div>
+
+    {/* FAQ Section — long-tail keyword coverage */}
+    <div className="w-full max-w-[1200px] mx-auto px-8 lg:px-16 pb-24">
+      <h2 className="font-serif text-3xl text-[#0f172a] mb-10 text-center">Frequently Asked Questions</h2>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)]">
+          <h3 className="font-medium text-[#0f172a] mb-3">What is CosConnect+?</h3>
+          <p className="text-sm text-gray-500 leading-relaxed">CosConnect+ is a student-run club at Monash University dedicated to cosmetic science. We run formulation workshops, industry networking events, and career sessions for students passionate about beauty science, skincare, and personal care.</p>
+        </div>
+        <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)]">
+          <h3 className="font-medium text-[#0f172a] mb-3">Who can join CosConnect+?</h3>
+          <p className="text-sm text-gray-500 leading-relaxed">Any Monash University student with an interest in cosmetic science, chemistry, beauty, skincare, or related fields is welcome to join. You do not need to be studying pharmacy or chemistry — curiosity is enough.</p>
+        </div>
+        <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)]">
+          <h3 className="font-medium text-[#0f172a] mb-3">What events does CosConnect+ run?</h3>
+          <p className="text-sm text-gray-500 leading-relaxed">We run formulation workshops, industry guest speaker sessions, career networking events (such as Monash Pharmaceutical Science Employability Week), orientation mixers, and hands-on chemistry of beauty sessions throughout the semester.</p>
+        </div>
+        <div className="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)]">
+          <h3 className="font-medium text-[#0f172a] mb-3">How do I become a member of CosConnect+?</h3>
+          <p className="text-sm text-gray-500 leading-relaxed">You can become a member by filling in the membership form linked on our homepage. Membership connects you to our community, events calendar, and networking opportunities with cosmetic science professionals.</p>
+        </div>
+      </div>
+    </div>
+    </>
   );
 }
 
@@ -243,10 +268,10 @@ function HomeContent({ setActiveTab }: { setActiveTab: (tab: string) => void }) 
         />
 
         {/* GIANT BACKGROUND TEXT — behind the figure */}
-        <div className="absolute top-0 left-0 w-full h-full pointer-events-none select-none overflow-hidden z-[5] flex items-center justify-center">
-          <h1 className="text-[13vw] leading-[0.85] font-serif text-white/[0.07] tracking-tight text-center">
+        <div className="absolute top-0 left-0 w-full h-full pointer-events-none select-none overflow-hidden z-[5] flex items-center justify-center" aria-hidden="true">
+          <span className="text-[13vw] leading-[0.85] font-serif text-white/[0.07] tracking-tight text-center">
             COSCONNECT+
-          </h1>
+          </span>
         </div>
 
         {/* MAIN HERO CONTENT */}
@@ -255,9 +280,9 @@ function HomeContent({ setActiveTab }: { setActiveTab: (tab: string) => void }) 
           {/* Left Content */}
           <div className="max-w-xl z-20 flex flex-col items-start text-left flex-1">
             <p className="text-white/60 text-xs tracking-[0.2em] uppercase mb-4">MONASH UNIVERSITY • SEMESTER 1, 2026</p>
-            <h2 className="text-white font-serif text-5xl lg:text-6xl leading-tight mb-6">
+            <h1 className="text-white font-serif text-5xl lg:text-6xl leading-tight mb-6">
               Connect. Create. Cosmetics.
-            </h2>
+            </h1>
             <div className="text-white/60 text-sm lg:text-base leading-relaxed mb-8 font-light max-w-md">
               <p className="mb-3">A student community connecting passionate minds to explore cosmetic science, exchange ideas, and discover the chemistry behind beauty.</p>
               <WordLoop />
@@ -277,7 +302,7 @@ function HomeContent({ setActiveTab }: { setActiveTab: (tab: string) => void }) 
           <div className="w-[80%] sm:w-[60%] md:w-[50%] lg:w-[40%] max-w-[550px] z-[10] relative">
             <img 
               src="/images/hero-portrait.jpg" 
-              alt="Ethereal beauty portrait" 
+              alt="CosConnect+ cosmetic science student community at Monash University" 
               className="w-full h-auto object-cover"
               style={{ maskImage: 'radial-gradient(ellipse at center, black 55%, transparent 75%)', WebkitMaskImage: 'radial-gradient(ellipse at center, black 55%, transparent 75%)' }}
             />
@@ -313,10 +338,10 @@ function HomeContent({ setActiveTab }: { setActiveTab: (tab: string) => void }) 
         <AnimatedContent distance={60} duration={0.9}>
           <div className="w-full max-w-3xl text-center flex flex-col items-center">
             <h2 className="text-[#1a2b3c] font-serif text-4xl lg:text-5xl leading-tight mb-6">
-              EXPLORE COSMETIC SCIENCE
+              Explore Cosmetic Science at Monash University
             </h2>
             <p className="text-gray-500 text-base leading-relaxed font-light max-w-2xl">
-              Dive into the chemistry of beauty. From formulation workshops to industry networking, discover the science behind your favorite products.
+              Dive into the chemistry of beauty. From formulation workshops to industry networking, CosConnect+ helps Monash students discover the science behind cosmetics, skincare, and personal care products.
             </p>
           </div>
         </AnimatedContent>
@@ -375,7 +400,7 @@ function HomeContent({ setActiveTab }: { setActiveTab: (tab: string) => void }) 
       <section className="relative w-full h-[60vh] lg:h-[80vh] overflow-hidden group">
         <img 
           src="/images/community-bg.jpg" 
-          alt="CosConnect+ Community" 
+          alt="CosConnect+ student cosmetic science community at Monash University" 
           className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000"
         />
         <div className="absolute inset-0 bg-black/40"></div>
@@ -474,6 +499,59 @@ function WordLoop() {
         {loopWords[currentIndex]}
       </span>
     </span>
+  );
+}
+
+function ContactContent() {
+  return (
+    <div className="py-32 px-8 lg:px-16 max-w-[900px] mx-auto min-h-screen pt-40">
+      <h1 className="text-4xl lg:text-5xl font-serif text-[#1a2b3c] mb-4">Contact CosConnect+</h1>
+      <p className="text-gray-500 mb-12 max-w-xl">Get in touch with the CosConnect+ team at Monash University. We'd love to hear from you.</p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        <div className="bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          <h2 className="font-serif text-2xl text-[#1a2b3c] mb-6">Get In Touch</h2>
+          <div className="space-y-4 text-sm text-gray-600">
+            <div>
+              <span className="font-medium text-gray-900 block mb-1">Club</span>
+              <span>CosConnect+</span>
+            </div>
+            <div>
+              <span className="font-medium text-gray-900 block mb-1">University</span>
+              <span>Monash University, Clayton VIC 3800, Australia</span>
+            </div>
+            <div>
+              <span className="font-medium text-gray-900 block mb-1">Instagram</span>
+              <a href="https://www.instagram.com/cosconnect.official" target="_blank" rel="noopener noreferrer" className="text-[#38bdf8] hover:underline">@cosconnect.official</a>
+            </div>
+            <div>
+              <span className="font-medium text-gray-900 block mb-1">Membership</span>
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSdAbhSOka0I_Q4pioU-w29Op1qAh3HHtcPW99PvixqrJT1BGg/viewform" target="_blank" rel="noopener noreferrer" className="text-[#38bdf8] hover:underline">Join via membership form →</a>
+            </div>
+          </div>
+        </div>
+        <div className="bg-white rounded-3xl p-10 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
+          <h2 className="font-serif text-2xl text-[#1a2b3c] mb-6">Send Us a Message</h2>
+          <form
+            onSubmit={(e) => { e.preventDefault(); alert('Thank you! We will get back to you soon.'); }}
+            className="space-y-4"
+          >
+            <div>
+              <label className="text-xs font-medium text-gray-700 uppercase tracking-widest block mb-1" htmlFor="contact-name">Name</label>
+              <input id="contact-name" type="text" required placeholder="Your name" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#38bdf8]/40" />
+            </div>
+            <div>
+              <label className="text-xs font-medium text-gray-700 uppercase tracking-widest block mb-1" htmlFor="contact-email">Email</label>
+              <input id="contact-email" type="email" required placeholder="your@email.com" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#38bdf8]/40" />
+            </div>
+            <div>
+              <label className="text-xs font-medium text-gray-700 uppercase tracking-widest block mb-1" htmlFor="contact-msg">Message</label>
+              <textarea id="contact-msg" required rows={4} placeholder="How can we help?" className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#38bdf8]/40 resize-none" />
+            </div>
+            <button type="submit" className="w-full bg-[#1a2b3c] text-white rounded-full py-3 text-xs tracking-widest uppercase hover:bg-[#2a3b4c] transition-all duration-300">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
   );
 }
 
