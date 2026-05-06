@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://heroic-fairy-9b5349.netlify.app/sitemap.xml
